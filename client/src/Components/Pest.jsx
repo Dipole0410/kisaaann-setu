@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Pest = () => {
   // Is state se hum widget ko dikhayenge ya chhupayenge
@@ -19,11 +18,6 @@ const Pest = () => {
       className="p-8 min-h-screen bg-slate-100 text-slate-800"
       style={styles.container}
     >
-      <div style={{ maxWidth: "600px", margin: "0 auto 16px", textAlign: "right" }}>
-        <Link to="/" style={{ color: "#166534", fontSize: "14px" }}>
-          ← होम
-        </Link>
-      </div>
       <div style={styles.card}>
         <h2 style={styles.title}>🌿 AI कीट पहचान (Pest Detection)</h2>
         <p style={styles.text}>
@@ -51,7 +45,7 @@ const Pest = () => {
             width="100%"
             height="850px"
             style={styles.iframe}
-            allow="camera" // Mobile users ke liye camera access zaroori hai
+            allow="camera"
             sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
           />
         </div>

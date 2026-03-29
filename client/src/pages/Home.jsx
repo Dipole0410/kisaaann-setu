@@ -1,23 +1,27 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import Features from '../Components/Features.jsx';
-import Faqs from '../Components/Faqs.jsx';
-import Scheme from '../Components/Scheme.jsx';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import Features from "../Components/Features.jsx";
+import Faqs from "../Components/Faqs.jsx";
+import Scheme from "../Components/Scheme.jsx";
+import CropRecommendation from "../Components/CropRecommendation.jsx";
+import Pest from "../Components/Pest.jsx";
 
 export default function Home() {
   const [bannerVisible, setBannerVisible] = useState(true);
-  const [startId, setStartId] = useState('');
+  const [startId, setStartId] = useState("");
   const navigate = useNavigate();
 
   const goRegister = (e) => {
     e?.preventDefault();
-    navigate('/register', { state: { aadharHint: startId.trim() || undefined } });
+    navigate("/register", {
+      state: { aadharHint: startId.trim() || undefined },
+    });
   };
 
   const scrollToFeatures = () => {
-    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
-    toast.success('नीचे मुख्य सुविधाएँ देखें');
+    document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
+    toast.success("नीचे मुख्य सुविधाएँ देखें");
   };
 
   return (
@@ -71,12 +75,7 @@ export default function Home() {
       <section className="flex flex-col items-center pb-48 text-center text-sm text-white max-md:px-2 bg-[url('https://png.pngtree.com/thumb_back/fw800/background/20260316/pngtree-rural-farming-land-landscape-image_21593657.webp')] bg-cover bg-center">
         <nav className="flex justify-between items-center px-4 md:px-16 lg:px-24 xl:px-32 py-3.5 border-b border-slate-200/20 w-full">
           <Link to="/" className="inline-block">
-            <img
-              src="/logo.png"
-              alt="Kisan Setu"
-              width="100"
-              height="30"
-            />
+            <img src="/logo.png" alt="Kisan Setu" width="100" height="30" />
           </Link>
           <div className="flex items-center gap-3">
             <Link
@@ -112,7 +111,7 @@ export default function Home() {
             />
           </div>
           <p className="-translate-x-2">
-            “1 मिलियन+ किसानों के साथ जुड़कर स्मार्ट खेती की ओर बढ़ें”{' '}
+            “1 मिलियन+ किसानों के साथ जुड़कर स्मार्ट खेती की ओर बढ़ें”{" "}
           </p>
         </div>
         <h1 className="font-berkshire text-[45px]/[52px] md:text-6xl/[65px] mt-6 max-w-4xl">
@@ -178,6 +177,8 @@ export default function Home() {
       </section>
 
       <Features />
+      <Pest />
+      <CropRecommendation />
       <Scheme />
       <Faqs />
 
