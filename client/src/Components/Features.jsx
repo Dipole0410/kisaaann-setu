@@ -1,47 +1,54 @@
-import React from "react";
+import { Link } from 'react-router-dom';
 
 const Features = () => {
-  // यहाँ आपके सभी फीचर्स की जानकारी है
   const features = [
     {
-      title: "AI कृषि सलाहकार चैटबॉट",
+      title: 'AI कृषि सलाहकार चैटबॉट',
       description:
-        "फसलों की सेहत, कीटों की पहचान और खेती के तरीकों पर तुरंत विशेषज्ञ सलाह पाएं। बिना किसी इंतज़ार के, स्मार्ट समाधान।",
+        'फसलों की सेहत, कीटों की पहचान और खेती के तरीकों पर तुरंत विशेषज्ञ सलाह पाएं। लॉग इन के बाद फ़्लोटिंग चैट से बैकएंड सलाह।',
       image:
-        "https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg",
-      alt: "AI चैटबॉट",
+        'https://www.shutterstock.com/image-vector/happy-robot-3d-ai-character-600nw-2464455965.jpg',
+      alt: 'AI चैटबॉट',
       hasTrending: true,
-      imageClass: "max-w-[200px]",
+      imageClass: 'max-w-[200px]',
+      to: '/login',
+      linkState: { from: { pathname: '/' }, openBot: true },
+      linkLabel: 'लॉग इन व चैट',
     },
     {
-      title: "सटीक मौसम और उपज अनुमान",
+      title: 'सटीक मौसम और उपज अनुमान',
       description:
-        "मशीन लर्निंग (ML) की मदद से सटीक स्थानीय मौसम और पैदावार का अनुमान लगाएं। अपनी फसल की योजना सही समय पर बनाएं।",
+        'स्थानीय मौसम (Open-Meteo) — ज़िला या निर्देशांक से तुरंत देखें।',
       image:
-        "https://www.shutterstock.com/image-photo/sidebyside-agricultural-scene-showing-weather-260nw-2589992207.jpg",
-      alt: "मौसम और उपज का ग्राफ",
+        'https://www.shutterstock.com/image-photo/sidebyside-agricultural-scene-showing-weather-260nw-2589992207.jpg',
+      alt: 'मौसम और उपज का ग्राफ',
       hasTrending: false,
-      imageClass: "max-w-[220px]",
+      imageClass: 'max-w-[220px]',
+      to: '/weather',
+      linkLabel: 'मौसम देखें',
     },
     {
-      title: "स्मार्ट मंडी और सरकारी योजनाएं",
+      title: 'स्मार्ट मंडी और सरकारी योजनाएं',
       description:
-        "मंडियों के लाइव भाव, रीयल-टाइम बोलियां और सरकारी योजनाओं की जानकारी। अपनी फसल सही दाम पर बेचें।",
-      image:
-        "https://ommcomnews.com/wp-content/uploads/2025/08/dhana-mandi.jpg",
-      alt: "स्मार्ट मंडी डैशबोर्ड",
+        'डेटाबेस से योजनाएँ और बुलेटिन — API से लाइव सूची।',
+      image: 'https://ommcomnews.com/wp-content/uploads/2025/08/dhana-mandi.jpg',
+      alt: 'स्मार्ट मंडी डैशबोर्ड',
       hasTrending: false,
-      imageClass: "max-w-[240px]",
+      imageClass: 'max-w-[240px]',
+      to: '/schemes',
+      linkLabel: 'योजनाएँ',
     },
     {
-      title: "CNN कीट एवं रोग पहचान",
+      title: 'CNN कीट एवं रोग पहचान',
       description:
-        "फसल की फोटो अपलोड करें और हमारी उन्नत AI तकनीक से सेकंडों में फसल की बीमारियों और कीड़ों का पता लगाएं।",
-      image: "https://cdn-icons-png.flaticon.com/512/1904/1904533.png",
-      alt: "कीट पहचान प्रणाली",
+        'फसल की फोटो अपलोड करें — बाहरी Streamlit मॉडल या नीचे पेज पर टूल।',
+      image: 'https://cdn-icons-png.flaticon.com/512/1904/1904533.png',
+      alt: 'कीट पहचान प्रणाली',
       hasTrending: true,
-      imageClass: "max-w-[150px]",
+      imageClass: 'max-w-[150px]',
       isNew: true,
+      to: '/pest',
+      linkLabel: 'कीट पहचान खोलें',
     },
   ];
 
@@ -49,39 +56,35 @@ const Features = () => {
     <>
       <style>
         {`
-                    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-                    .font-poppins {
-                        font-family: "Poppins", sans-serif;
-                    }
-                `}
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+          .font-poppins { font-family: "Poppins", sans-serif; }
+        `}
       </style>
 
-      <section className="bg-white/90 py-16 px-4 font-poppins">
+      <section id="features" className="bg-white/90 py-16 px-4 font-poppins scroll-mt-4">
         <div className="flex items-center flex-col justify-center text-center">
-          {/* छोटा बटन / बैज */}
-          <button className="bg-green-100 text-sm text-green-800 px-6 py-2.5 rounded-full font-medium hover:bg-green-200 transition-colors">
-            हमारी मुख्य विशेषताएं
-          </button>
+          <Link
+            to="/crop"
+            className="bg-green-100 text-sm text-green-800 px-6 py-2.5 rounded-full font-medium hover:bg-green-200 transition-colors inline-block"
+          >
+            हमारी मुख्य विशेषताएं — फसल सिफारिश
+          </Link>
 
-          {/* मुख्य हेडिंग */}
           <h2 className="text-black font-semibold text-4xl md:text-[40px] mt-6 leading-tight">
             स्मार्ट खेती की शुरुआत यहाँ से होती है।
           </h2>
 
-          {/* सब-हेडिंग */}
           <p className="text-base text-black/60 max-w-lg mt-3">
             भारतीय किसानों के लिए बनाए गए उन्नत AI टूल्स, जो पैदावार बढ़ाएं और
             मेहनत घटाएं।
           </p>
 
-          {/* फीचर्स ग्रिड (Grid) */}
           <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {features.map((feature, index) => (
               <div
                 key={index}
                 className="bg-green-50 border border-green-200 rounded-3xl hover:border-green-500 hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 p-8 flex flex-col relative group overflow-hidden"
               >
-                {/* ऊपर के बैज (New / Live) */}
                 <div className="flex justify-between items-center mb-6 h-8">
                   {feature.isNew ? (
                     <span className="bg-green-600 text-white text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
@@ -114,7 +117,6 @@ const Features = () => {
                   )}
                 </div>
 
-                {/* इमेज बॉक्स */}
                 <div className="flex-1 flex items-center justify-center min-h-45">
                   <img
                     className={`w-full object-contain transition-transform duration-500 group-hover:scale-110 ${feature.imageClass}`}
@@ -123,14 +125,20 @@ const Features = () => {
                   />
                 </div>
 
-                {/* टेक्स्ट वाला भाग */}
-                <div className="mt-8 text-left">
+                <div className="mt-8 text-left flex flex-col flex-1">
                   <h3 className="text-lg font-bold text-green-900 group-hover:text-green-700 transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-black/70 mt-2 leading-relaxed">
+                  <p className="text-sm text-black/70 mt-2 leading-relaxed flex-1">
                     {feature.description}
                   </p>
+                  <Link
+                    to={feature.to}
+                    state={feature.linkState}
+                    className="mt-4 inline-flex items-center justify-center rounded-full bg-green-700 text-white text-sm font-medium px-4 py-2 hover:bg-green-800 transition-colors"
+                  >
+                    {feature.linkLabel}
+                  </Link>
                 </div>
               </div>
             ))}

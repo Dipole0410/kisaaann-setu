@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion';
-import {  UploadCloud } from 'lucide-react';
+import { UploadCloud } from 'lucide-react';
 
 const Drag = () => {
 

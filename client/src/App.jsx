@@ -1,8 +1,28 @@
-import React from "react";
-import Login from "./Components/Login";
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout.jsx';
+import Home from './pages/Home.jsx';
+import Register from './Components/Register.jsx';
+import SignIn from './Components/SignIn.jsx';
+import Pest from './Components/Pest.jsx';
+import CropRecommendation from './Components/CropRecommendation.jsx';
+import Weather from './Components/Weather.jsx';
+import SchemesPage from './Components/SchemesPage.jsx';
 
-const App = () => {
+export default function App() {
   return (
+ main
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<SignIn />} />
+        <Route path="pest" element={<Pest />} />
+        <Route path="crop" element={<CropRecommendation />} />
+        <Route path="weather" element={<Weather />} />
+        <Route path="schemes" element={<SchemesPage />} />
+      </Route>
+    </Routes>
+
     <>
       <div className="w-full flex items-center justify-between px-4 md:px-14 py-1 font-medium text-sm text-white text-center bg-linear-to-r from-green-500 via-[#38ca4b] to-[#acf4ae]">
         <p>किसान सहायता: पहले परामर्श पर 20% की छूट !</p>
@@ -92,7 +112,6 @@ const App = () => {
                 }
                 `}</style>
     </>
+ main
   );
-};
-
-export default App;
+}
