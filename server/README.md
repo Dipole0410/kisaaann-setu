@@ -134,19 +134,3 @@ Thin layer: read `req`, call services/models, send `res.json` / status codes.
 
 ---
 
-## Where to change links and URLs (summary)
-
-| Location | What to change |
-|----------|----------------|
-| **`client/vite.config.js`** | `server.proxy['/api'].target` |
-| **`server/.env`** | `CORS_ORIGIN`, `MONGODB_URI`, `PORT`, `OPENAI_API_KEY`, `JWT_SECRET` |
-| **`server/src/services/weatherService.js`** | Weather API base URL and query parameters |
-| **`server/src/services/advisoryService.js`** | LLM provider, model name, API usage |
-| **`server/src/services/remoteSensingService.js`** | Satellite / vegetation-index provider URLs |
-| **`server/src/config/upDistricts.js`** | District names and centroid coordinates (not HTTP links, but affects location defaults) |
-| **Frontend (when you add `fetch`)** | Use `/api/v1/...` in dev (proxy), or full `https://your-api-domain/...` in production |
-
-The sections below explain **each of these in detailed steps**.
-
----
-
